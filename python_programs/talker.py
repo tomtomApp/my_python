@@ -10,6 +10,8 @@ class Talker(Node):
         self.timer = self.create_timer(1.0, self.timer_callback)
 
     def timer_callback(self):
+        if self.i > 5:
+            rclpy.shutdown()
         msg = String()
         msg.data = 'Hello World: {0}'.format(self.i)
         self.i += 1
